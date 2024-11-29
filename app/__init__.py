@@ -12,17 +12,20 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.secret_key = 'super_secret_key'
 
-    Swagger(app)  # Inicializa flasgger para la documentación
+    Swagger(app)
 
     db.init_app(app)
     login_manager.init_app(app)
     login_manager.login_view = 'main.login'
 
+    # Importar después de inicializar 'db' para evitar importación circular
+    with app.app_context():
+        from app.models import models
+        db.create_all()
+
+    # Registrar blueprints
     from .controllers import routes
     app.register_blueprint(routes.bp)
-
-    with app.app_context():
-        db.create_all()
 
     return app
 
