@@ -4,3 +4,4 @@ Definición de modelos adicionales
 Implementación de rutas para usuarios
 Implementación de rutas CRUD para productos
 Integración de Swagger
+Implementación de repositorios de datos
