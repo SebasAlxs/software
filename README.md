@@ -6,3 +6,5 @@ Implementación de rutas CRUD para productos
 Integración de Swagger
 Implementación de repositorios de datos
 Implementación de servicios para lógica de negocio
+Agrega pruebas unitarias básicas
+Agrega pruebas unitarias básicas
